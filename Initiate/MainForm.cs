@@ -38,12 +38,14 @@ namespace Initiate
 
         private void UpdateListbox()
         {
+            OrderListBox.Items.Clear();
+            OrderedPlayers.Clear();
             List<string> Names = new List<string>();
             foreach (PlayerwithProperties p in Players)
             {
                 Names.Add(p.Name);
             }
-            listBox1.Items.AddRange(Names.ToArray());
+            OrderListBox.Items.AddRange(Names.ToArray());
         }
 
         private static readonly Random getrandom = new Random();
@@ -70,9 +72,9 @@ namespace Initiate
                 OrderedPlayers.RemoveFirst();
                 OrderedPlayers.AddLast(buff);
                 buff = null;
-                listBox1.Items.Clear();
-                listBox1.Items.AddRange(OrderedPlayers.ToArray());
-                listBox1.SetSelected(0, true);
+                OrderListBox.Items.Clear();
+                OrderListBox.Items.AddRange(OrderedPlayers.ToArray());
+                OrderListBox.SetSelected(0, true);
             }
         }
 
@@ -101,10 +103,10 @@ namespace Initiate
               
             }
             OrderedPlayers.AddLast("------------Конец Хода-------------");
-            listBox1.Items.Clear();
-            listBox1.Items.AddRange(OrderedPlayers.ToArray());
-            if (listBox1.Items.Count>0)
-                listBox1.SetSelected(0, true);
+            OrderListBox.Items.Clear();
+            OrderListBox.Items.AddRange(OrderedPlayers.ToArray());
+            if (OrderListBox.Items.Count>0)
+                OrderListBox.SetSelected(0, true);
         }
 
          void PutToRow(int DiceResult, PlayerwithProperties Player)
@@ -114,6 +116,10 @@ namespace Initiate
             else
                 PutToRow(DiceResult + 1, Player);
         }
-
+        protected override void OnActivated(EventArgs e)
+        {
+            UpdateListbox();
+            base.OnActivated(e);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,15 +36,16 @@ namespace Initiate
         private void UpdateListbox()
         {
             List<string> Names = new List<string>();
-            listBox1.Items.Clear();
+            ListBoxOfPlayers.Items.Clear();
             foreach (PlayerwithProperties p in MainForm.Players)
             {
                 Names.Add(p.Name);
             }
-            listBox1.Items.AddRange(Names.ToArray());
+            ListBoxOfPlayers.Items.AddRange(Names.ToArray());
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Done_Click(object sender, EventArgs e)
         {
             string s = JsonConvert.SerializeObject(MainForm.Players);
             System.IO.File.WriteAllText(@"Players.txt", s);
@@ -53,28 +55,34 @@ namespace Initiate
 
      
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Add_Click(object sender, EventArgs e)
         {
             PlayerwithProperties playerwithProperties = new PlayerwithProperties();
             DexterityBox.BackColor = Color.White;
             WitBox.BackColor = Color.White;
             NameBox.BackColor = Color.White;
             playerwithProperties.Name = NameBox.Text;
+            if (NameBox.Text.Equals(""))
+            {
+                NameBox.BackColor = Color.Coral;
+                return;
+            }
             foreach (PlayerwithProperties p in MainForm.Players)
             {
                 if (p.Name.Equals(NameBox.Text))
                 {
-                    NameBox.BackColor = Color.Red;
+                    NameBox.BackColor = Color.Coral;
                     return;
                 }
             }
+           
             try
             {
                 playerwithProperties.Dexterity = Convert.ToInt32(DexterityBox.Text);
             }
             catch (Exception eee)
             {
-                DexterityBox.BackColor = Color.Red;
+                DexterityBox.BackColor = Color.Coral;
                 return;
             }
             try
@@ -83,7 +91,7 @@ namespace Initiate
             }
             catch (Exception eee)
             {
-                WitBox.BackColor = Color.Red;
+                WitBox.BackColor = Color.Coral;
                 return;
             }
             MainForm.Players.Add(playerwithProperties);
@@ -92,18 +100,15 @@ namespace Initiate
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void Delete_Click(object sender, EventArgs e)
         {
-            for (int x = listBox1.SelectedIndices.Count - 1; x >= 0; x--)
+            for (int x = ListBoxOfPlayers.SelectedIndices.Count - 1; x >= 0; x--)
             {
-                int idx = listBox1.SelectedIndices[x];
+                int idx = ListBoxOfPlayers.SelectedIndices[x];
                 MainForm.Players.RemoveAt(idx);
-                listBox1.Items.RemoveAt(idx);
+                ListBoxOfPlayers.Items.RemoveAt(idx);
             }
         }
     }

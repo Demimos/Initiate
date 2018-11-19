@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Done = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.DexterityBox = new System.Windows.Forms.TextBox();
             this.WitBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ListBoxOfPlayers = new System.Windows.Forms.ListBox();
+            this.Delete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // Done
             // 
-            this.button1.Location = new System.Drawing.Point(713, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Done.Location = new System.Drawing.Point(713, 415);
+            this.Done.Name = "Done";
+            this.Done.Size = new System.Drawing.Size(75, 23);
+            this.Done.TabIndex = 0;
+            this.Done.Text = "Готово";
+            this.Done.UseVisualStyleBackColor = true;
+            this.Done.Click += new System.EventHandler(this.Done_Click);
             // 
-            // button2
+            // Add
             // 
-            this.button2.Location = new System.Drawing.Point(338, 350);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Add.Location = new System.Drawing.Point(338, 328);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(75, 23);
+            this.Add.TabIndex = 1;
+            this.Add.Text = "Добавить";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // NameBox
             // 
@@ -108,43 +108,42 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Сообразительность";
             // 
-            // listBox1
+            // ListBoxOfPlayers
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 13);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(655, 199);
-            this.listBox1.TabIndex = 8;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.ListBoxOfPlayers.FormattingEnabled = true;
+            this.ListBoxOfPlayers.Location = new System.Drawing.Point(13, 13);
+            this.ListBoxOfPlayers.Name = "ListBoxOfPlayers";
+            this.ListBoxOfPlayers.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.ListBoxOfPlayers.Size = new System.Drawing.Size(655, 199);
+            this.ListBoxOfPlayers.TabIndex = 8;
             // 
-            // button3
+            // Delete
             // 
-            this.button3.Location = new System.Drawing.Point(532, 218);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Удалить выделенное";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Delete.Location = new System.Drawing.Point(532, 218);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(136, 23);
+            this.Delete.TabIndex = 9;
+            this.Delete.Text = "Удалить выделенное";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // Configure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.Delete);
+            this.Controls.Add(this.ListBoxOfPlayers);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.WitBox);
             this.Controls.Add(this.DexterityBox);
             this.Controls.Add(this.NameBox);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Add);
+            this.Controls.Add(this.Done);
             this.Name = "Configure";
-            this.Text = "Configure";
+            this.Text = "Редактор Списка Участников";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,15 +151,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Done;
+        private System.Windows.Forms.Button Add;
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.TextBox DexterityBox;
         private System.Windows.Forms.TextBox WitBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ListBox ListBoxOfPlayers;
+        private System.Windows.Forms.Button Delete;
     }
 }
