@@ -66,9 +66,9 @@ namespace Initiate
         {
             if (OrderedPlayers.Count>1)
             {
-                string buff = OrderedPlayers.Last();
-                OrderedPlayers.RemoveLast();
-                OrderedPlayers.AddFirst(buff);
+                string buff = OrderedPlayers.First();
+                OrderedPlayers.RemoveFirst();
+                OrderedPlayers.AddLast(buff);
                 buff = null;
                 listBox1.Items.Clear();
                 listBox1.Items.AddRange(OrderedPlayers.ToArray());
@@ -100,6 +100,7 @@ namespace Initiate
                 OrderedPlayers.AddFirst(PlayerString);
               
             }
+            OrderedPlayers.AddLast("------------Конец Хода-------------");
             listBox1.Items.Clear();
             listBox1.Items.AddRange(OrderedPlayers.ToArray());
             if (listBox1.Items.Count>0)

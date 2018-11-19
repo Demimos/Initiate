@@ -58,7 +58,16 @@ namespace Initiate
             PlayerwithProperties playerwithProperties = new PlayerwithProperties();
             DexterityBox.BackColor = Color.White;
             WitBox.BackColor = Color.White;
+            NameBox.BackColor = Color.White;
             playerwithProperties.Name = NameBox.Text;
+            foreach (PlayerwithProperties p in MainForm.Players)
+            {
+                if (p.Name.Equals(NameBox.Text))
+                {
+                    NameBox.BackColor = Color.Red;
+                    return;
+                }
+            }
             try
             {
                 playerwithProperties.Dexterity = Convert.ToInt32(DexterityBox.Text);
