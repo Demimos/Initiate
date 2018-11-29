@@ -118,7 +118,7 @@ namespace Initiate
         }
         protected override void OnActivated(EventArgs e)
         {
-            UpdateListbox();
+          // UpdateListbox();
             base.OnActivated(e);
         }
     }
